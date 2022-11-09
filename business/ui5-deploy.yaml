@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: app04.business
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://S4HANA.IDES.COM:9222
+          client: "400"
+        app:
+          name: ZBUSINESS
+          package: $tmp
+          transport: "S4HK900088"

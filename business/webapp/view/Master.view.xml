@@ -1,0 +1,42 @@
+<mvc:View controllerName="app04.business.controller.Master" 
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true" 
+xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Table id="partner" items="{/BusinessPartner14Set}" >
+                <columns>
+                  <Column id="_IDGenColumn1">
+                        <Label id="_IDGenLabel1" text="Nome" />
+                    </Column>
+                    <Column id="_IDGenColumn2">
+                        <Label id="_IDGenLabel2" text="Tipo" />
+                    </Column>
+                    <Column id="_IDGenColumn3">
+                        <Label id="_IDGenLabel3" text="Endereço" />
+                    </Column>
+                    <Column id="_IDGenColumn4">
+                        <Label id="_IDGenLabel4" text="País" />
+                    </Column>
+                </columns>
+                
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press="itemPress" >
+                        <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{PartnerID}" text="{PartnerName1}" />
+                        <Text id="_IDGenText1" text="{PartnerType}" />
+                        <Text id="_IDGenText2" text="{Street} {HouseNumber}" />
+                        <Text id="_IDGenText3" text="{Country}" />
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <content>
+                    <ToolbarSpacer />
+                    <Button type="Emphasized" text="Adicionar" press="btnAdicionar" />
+                </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

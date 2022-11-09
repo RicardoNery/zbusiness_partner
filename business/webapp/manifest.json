@@ -1,0 +1,136 @@
+{
+  "_version": "1.14.0",
+  "sap.app": {
+    "id": "app04.business",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.8.0",
+      "toolsId": "8a3dc7da-453a-48c5-a86b-dbf649c260d9"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZALUNO14_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.65.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app04.business.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "app04.business.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMaster",
+          "pattern": "",
+          "target": [
+            "TargetMaster"
+          ]
+        },
+        {
+          "name": "RotaDetalhe",
+          "pattern": "exibir/{PartnerId}",
+          "target": [
+            "DestinoDetalhe"
+          ]
+        },
+        {
+          "name": "RotaAdicionar",
+          "pattern": "novoParceiro",
+          "target":[
+            "DestinoDetalhe"
+          ]
+        }        
+      ],
+      "targets": {
+        "TargetMaster": {
+          "viewName": "Master",
+          "viewId": "Master"
+        },
+        "DestinoDetalhe": {
+          "viewName": "Detail",
+          "viewId": "Detail"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "app04.business.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    }
+  }
+}
